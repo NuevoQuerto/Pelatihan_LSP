@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
 use App\Dosen;
 
 class DosenController extends Controller
@@ -31,8 +30,8 @@ class DosenController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'nama' => ['required', 'string'],
-            'alamat' => ['required', 'string'],
+            'nama' => ['required', 'string', 'max:255'],
+            'alamat' => ['required', 'string', 'max:255'],
         ]);
 
         if ($validator->fails()) {
@@ -57,8 +56,8 @@ class DosenController extends Controller
     public function update($id, Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'nama' => ['string'],
-            'alamat' => ['string'],
+            'nama' => ['string', 'max:255'],
+            'alamat' => ['string', 'max:255'],
         ]);
 
         if ($validator->fails()) {

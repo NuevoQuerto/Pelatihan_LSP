@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <button type="button" class="btn btn-light"><a href="{{ route('dosens') }}">Data Dosen</a></button>
                     <button type="button" class="btn btn-light"><a href="#">Data Mahasiswa</a></button>
-                    <button type="button" class="btn btn-light"><a href="#">Data Matakuliah</a></button>
+                    <button type="button" class="btn btn-light"><a href="{{ route('mata_kuliah') }}">Data Matakuliah</a></button>
                     <button type="button" class="btn btn-light"><a href="#">Data Semester</a></button>
                 </div>
             </div>
