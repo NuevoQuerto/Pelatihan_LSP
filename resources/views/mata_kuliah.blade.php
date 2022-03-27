@@ -31,7 +31,7 @@
                                     <td>{{ $matkul->sks }}</td>
                                     <td>
                                         <a class="btn btn-primary" href="{{ route('edit_mata_kuliah.form', ['id' => $matkul->kd_matkul]) }}">Edit</a>
-                                        <button type="button" class="btn btn-danger" @click="delete_mata_kuliah({{ $matkul->kd_matkul }})">Hapus</button>
+                                        <button type="button" class="btn btn-danger" @click="delete_mata_kuliah('{{ $matkul->kd_matkul }}')">Hapus</button>
                                     </td>
                                 </tr>
                             @endforeach

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTblSemesterTable extends Migration
+class CreateTblKrsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateTblSemesterTable extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_semester', function (Blueprint $table) {
-            $table->string('id_semester_registrasi')->primary();
-            $table->string('nama_semester_registrasi');
-            $table->string('no_urut');
+        Schema::create('tbl_krs', function (Blueprint $table) {
+            $table->string('nama');
+            $table->string('id_semester_registrasi', 32);
             $table->timestamps();
+
+            $table->foreign("id_semester_registrasi")->references("id_semester_registrasi")->on("tbl_semester");
         });
     }
 
@@ -28,6 +29,6 @@ class CreateTblSemesterTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_semester');
+        Schema::dropIfExists('tbl_krs');
     }
 }

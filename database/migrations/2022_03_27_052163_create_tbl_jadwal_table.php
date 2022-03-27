@@ -15,11 +15,14 @@ class CreateTblJadwalTable extends Migration
     {
         Schema::create('tbl_jadwal', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('kode_matkul');
-            $table->string('kode_dosen');
+            $table->string('kode_matkul', 32);
+            $table->unsignedBigInteger('kode_dosen');
             $table->string('ruang');
             $table->string('waktu');
             $table->timestamps();
+
+            $table->foreign("kode_matkul")->references("kd_matkul")->on("tbl_matkul");
+            $table->foreign("kode_dosen")->references("id")->on("tbl_dosen");
         });
     }
 
